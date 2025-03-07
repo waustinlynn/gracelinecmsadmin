@@ -1,0 +1,16 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; // Full viewport height
+}
+
+.login-card {
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
