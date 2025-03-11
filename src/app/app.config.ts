@@ -9,11 +9,13 @@ import { authTokenInterceptor } from './interceptors/auth-token.interceptor';
 let apiModuleWithProviders = ApiApiModule.forRoot(() => new Configuration({ basePath: 'https://localhost:7263', withCredentials: true }));
 let apiProviders: (Provider | EnvironmentProviders)[] = apiModuleWithProviders?.providers ?? [];
 
+export const httpEnvironmentProviders: EnvironmentProviders = provideHttpClient(withInterceptors([authTokenInterceptor]));
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([authTokenInterceptor])),
+    httpEnvironmentProviders,
     ...apiProviders
   ]
 };

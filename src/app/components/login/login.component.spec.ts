@@ -9,6 +9,7 @@ import { getElementByTestId } from '../../../testing/helpers';
 import { provideRouter, Router } from '@angular/router';
 import { routes } from '../../app.routes';
 import { TokenService } from '../../services/token.service';
+import { httpEnvironmentProviders } from '../../app.config';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -19,7 +20,7 @@ describe('LoginComponent', () => {
     await TestBed.configureTestingModule({
       imports: [LoginComponent],
       providers: [
-        provideHttpClient(),
+        httpEnvironmentProviders,
         provideRouter(routes),
         AuthenticationCodeService
       ]

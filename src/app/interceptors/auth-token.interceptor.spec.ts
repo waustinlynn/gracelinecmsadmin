@@ -4,6 +4,7 @@ import { HttpClient, HttpInterceptorFn, provideHttpClient, withInterceptors } fr
 import { authTokenInterceptor } from './auth-token.interceptor';
 import { TokenService } from '../services/token.service';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { httpEnvironmentProviders } from '../app.config';
 
 describe('authTokenInterceptor', () => {
   const interceptor: HttpInterceptorFn = (req, next) =>
@@ -16,7 +17,7 @@ describe('authTokenInterceptor', () => {
     TestBed.configureTestingModule({
       providers: [
         TokenService,
-        provideHttpClient(withInterceptors([authTokenInterceptor])),
+        httpEnvironmentProviders,
         provideHttpClientTesting()
       ]
     });
