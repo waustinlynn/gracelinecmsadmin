@@ -10,7 +10,7 @@
 
 
 export interface AuthCodeValidationRequest { 
-    emailAddress: string | null;
-    authCode: string | null;
+    emailAddress: string;
+    authCode: string;
 }
 

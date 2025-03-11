@@ -7,11 +7,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { User } from './user';
+import { ContentModule } from './contentModule';
 
 
-export interface ContentModuleRequest { 
-    organizationId: string;
+export interface Organization { 
+    id?: string;
     name: string;
-    description: string;
+    users?: Array<User>;
+    contentModules?: Array<ContentModule>;
 }
 

@@ -3,16 +3,17 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { ApiApiModule, Configuration } from './api';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
+import { authTokenInterceptor } from './interceptors/auth-token.interceptor';
 
-let apiModuleWithProviders = ApiApiModule.forRoot(() => new Configuration({ basePath: 'https://localhost:7263' }));
+let apiModuleWithProviders = ApiApiModule.forRoot(() => new Configuration({ basePath: 'https://localhost:7263', withCredentials: true }));
 let apiProviders: (Provider | EnvironmentProviders)[] = apiModuleWithProviders?.providers ?? [];
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withInterceptors([authTokenInterceptor])),
     ...apiProviders
   ]
 };

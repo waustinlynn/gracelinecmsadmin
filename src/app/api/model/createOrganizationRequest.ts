@@ -10,6 +10,6 @@
 
 
 export interface CreateOrganizationRequest { 
-    name: string | null;
+    name: string;
 }
 

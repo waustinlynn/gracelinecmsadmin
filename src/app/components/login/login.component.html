@@ -1,12 +1,31 @@
+@if (enterEmail()){
 <div class="login-container">
     <mat-card class="login-card">
         <mat-card-title>Login</mat-card-title>
         <mat-card-content>
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" [(ngModel)]="email" required>
+                <input matInput type="email" [(ngModel)]="email" required data-testid="login-input">
             </mat-form-field>
-            <button mat-raised-button color="primary" class="full-width" (click)="onLogin()">Login</button>
+            <button mat-raised-button color="primary" class="full-width" (click)="onLogin()"
+                data-testid="login-button">Login</button>
         </mat-card-content>
     </mat-card>
 </div>
+}
+
+@if(enterCode()){
+<div class="login-container">
+    <mat-card class="login-card">
+        <mat-card-title>Validate</mat-card-title>
+        <mat-card-content>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Code</mat-label>
+                <input matInput type="text" [(ngModel)]="code" required data-testid="verify-input">
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="full-width" (click)="onVerify()"
+                data-testid="verify-button">Verify</button>
+        </mat-card-content>
+    </mat-card>
+</div>
+}

@@ -7,11 +7,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { User } from './user';
 
 
-export interface ContentModuleRequest { 
-    organizationId: string;
-    name: string;
-    description: string;
+export interface RefreshToken { 
+    id?: string;
+    refreshTokenValue: string;
+    createdAt?: string;
+    expiresAt?: string;
+    user: User;
 }
 

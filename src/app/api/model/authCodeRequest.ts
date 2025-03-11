@@ -10,6 +10,6 @@
 
 
 export interface AuthCodeRequest { 
-    emailAddress: string | null;
+    emailAddress: string;
 }
 

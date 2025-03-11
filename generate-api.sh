@@ -6,6 +6,8 @@ OUTPUT_FILE="openapi.json"
 GENERATOR_OUTPUT_DIR="src/app/api"
 
 # Download OpenAPI JSON
+echo "Cleaning up previous API client..."
+rm -rf $GENERATOR_OUTPUT_DIR
 echo "Downloading OpenAPI JSON..."
 curl -s -o $OUTPUT_FILE $API_URL
 
